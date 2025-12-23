@@ -44,24 +44,24 @@ public class UserControllerIntegrationTests {
         assertThat(response.getBody().getUsername()).isEqualTo(user.getUsername());
     }
 
-    // @Test
-    // void testCreateUser() {
-    //     User newUser = new User();
-    //     newUser.setUsername("integrationuser");
-    //     newUser.setEmail("integrationuser@example.com");
-    //     newUser.setPasswordHash("hash5");
-    //     newUser.setFullName("Integration User");
-    //     newUser.setRole("student");
-    //     newUser.setBio("Bio for integration user");
-    //     newUser.setMetadata("{}");
-    //     HttpHeaders headers = new HttpHeaders();
-    //     headers.setContentType(MediaType.APPLICATION_JSON);
-    //     HttpEntity<User> request = new HttpEntity<>(newUser, headers);
-    //     ResponseEntity<User> response = restTemplate.postForEntity(getBaseUrl(), request, User.class);
-    //     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-    //     assertThat(response.getBody()).isNotNull();
-    //     assertThat(response.getBody().getUsername()).isEqualTo("integrationuser");
-    // }
+    @Test
+    void testCreateUser() {
+        User newUser = new User();
+        newUser.setUsername("integrationuser");
+        newUser.setEmail("integrationuser@example.com");
+        newUser.setPasswordHash("hash5");
+        newUser.setFullName("Integration User");
+        newUser.setRole("student");
+        newUser.setBio("Bio for integration user");
+        newUser.setMetadata("{}");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<User> request = new HttpEntity<>(newUser, headers);
+        ResponseEntity<User> response = restTemplate.postForEntity(getBaseUrl(), request, User.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().getUsername()).isEqualTo("integrationuser");
+    }
 
     @Test
     void testUpdateUser() {
